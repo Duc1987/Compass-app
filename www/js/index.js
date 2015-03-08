@@ -40,6 +40,12 @@ function compassSuccess(heading) {
             $('#country').attr('src', 'img/' + countries[i].country + '.GIF');
         }
     };
+    
+    $('#compass').css({
+        '-webkit-transform' : 'rotate(-' + heading.magneticHeading + 'deg)',
+        '-moz-transform' : 'rotate(-' + heading.magneticHeading + 'deg)',
+        'transform' : 'rotate(-' + heading.magneticHeading + 'deg)'
+    });
 
 }
 function compassError() { }
