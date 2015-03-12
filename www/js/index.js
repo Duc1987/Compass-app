@@ -18,13 +18,18 @@ function deviceReady() {
 // Skewt de afbeelding met 'acceleration.y' als waarde
 function accelSuccess(acceleration) {    
     
-    var yDegree = acceleration.y * 6;
+    var yDegree = acceleration.y * 2;
+    var xDegree = acceleration.y * 4;
     //skew vlag
     $('#country').css({
         '-webkit-transform' : 'skewY(' + yDegree + 'deg)',
         '-moz-transform' : 'skewY(' + yDegree + 'deg)',
         'transform' : 'skewY(' + yDegree + 'deg)'
     });
+    
+    
+    // evenwicht luchtbel
+    $('#ball').css({ 'margin-left' : xDegree + '%' });
 }
 function accelError() { }
 
