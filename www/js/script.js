@@ -7,10 +7,15 @@ document.addEventListener("deviceready", deviceReady, false);
 // device APIs are available
 //
 function deviceReady() {
-   
-    var options = { frequency: 10 };    //opties voor sensoren
-    navigator.accelerometer.watchAcceleration(accelSuccess, accelError, options); //  Voert om de '10' seconden accelSucces uit als er acceleratie plaats vind
-    navigator.compass.watchHeading(compassSuccess, compassError, options); //voert om de '10' seconden compassSuccess uit als er richtingverandering plaats vind
+    
+    //opties voor sensoren
+    var options = { frequency: 5 };   
+    
+    //  Voert om de '5' seconden accelSucces uit als er acceleratie plaats vind
+    navigator.accelerometer.watchAcceleration(accelSuccess, accelError, options); 
+    
+    //voert om de '5' seconden compassSuccess uit als er richtingverandering plaats vind
+    navigator.compass.watchHeading(compassSuccess, compassError, options); 
 }
 
 //ACCELERATION
@@ -20,6 +25,7 @@ function accelSuccess(acceleration) {
     
     var yDegree = acceleration.y * 2;
     var xDegree = acceleration.y * 4;
+    
     //skew vlag
     $('#country').css({
         '-webkit-transform' : 'skewY(' + yDegree + 'deg)',
@@ -38,7 +44,6 @@ function accelError() { }
 // Laad een andere afbeelding zien zodra de waarde van 'heading.Magneticheading'
 // een bepaalde waarde bereikt die gekoppeld is aan een bepaald land
 function compassSuccess(heading) {
-
     
     var countries = [
         { country: 'sweden', direction: 40 },
