@@ -37,7 +37,7 @@ function accelSuccess(acceleration) {
     // evenwicht luchtbel
     $('#ball').css({ 'margin-left' : xDegree + '%' });
 }
-function accelError() { }
+function accelError() { alert('Error Accel'); }
 
 //COMPASS
 
@@ -67,4 +67,4 @@ function compassSuccess(heading) {
     });
 
 }
-function compassError() { }
+function compassError() { alert('Error Compass');  }
